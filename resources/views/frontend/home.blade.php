@@ -810,22 +810,23 @@
                 <div class="col-lg-12">
                     <div class="">
                         <div id="myCarousel" class="owl-carousel testimonial-owl-carousel">
+                            @foreach ($testmonials as $testmonial) 
                             <div class="item text-center">
                                 <div class="card-body p-0">
                                     <div class="row">
                                         <div class="col-xl-8 col-md-12 d-block mx-auto">
                                             <div class="">
                                                 <div class="testimonia-img mx-auto mb-3">
-                                                    <img src="{{asset('frontend')}}/assets/images/faces/female/11.jpg" class="img-thumbnail rounded-circle alt=" alt="">
+                                                    <img src="{{ asset($testmonial->image) }}" class="img-thumbnail rounded-circle alt=" alt="">
                                                 </div>
                                                 <p>
-                                                    <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in cillum dolore eu fugiat nulla pariatur.
+                                                    <i class="fa fa-quote-left"></i> {{ $testmonial->description }}
                                                 </p>
                                                 <div class="testimonia-data">
-                                                    <h4 class="fs-20 mb-1">Heather Bell</h4>
+                                                    <h4 class="fs-20 mb-1">{{ $testmonial->name }}</h4>
                                                     <div class="rating-stars">
-                                                        <input type="number" readonly="readonly" class="rating-value star" name="rating-stars-value"  value="3">
-                                                        <div class="rating-stars-container mb-2">
+                                                        <input type="number" readonly="readonly" class="rating-value star" name="rating-stars-value"  value="{{ $testmonial->rating }}">
+                                                        <div class="rating-stars-container mb-2"> 
                                                             <div class="rating-star sm">
                                                                 <i class="fa fa-star"></i>
                                                             </div>
@@ -850,82 +851,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item text-center">
-                                <div class="card-body p-0">
-                                    <div class="row">
-                                        <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                            <div class="">
-                                                <div class="testimonia-img mx-auto mb-3">
-                                                    <img src="{{asset('frontend')}}/assets/images/faces/male/42.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-                                                </div>
-                                                <p><i class="fa fa-quote-left"></i> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Nor again is there anyone who loves or pursues obtain pain of itself, because laboriosam ex ea commodi consequatur. </p>
-                                                <div class="testimonia-data">
-                                                    <h4 class="fs-20 mb-1">David Blake</h4>
-                                                    <div class="rating-stars">
-                                                        <input type="number" readonly="readonly" class="rating-value star" name="rating-stars-value"  value="3">
-                                                        <div class="rating-stars-container mb-2">
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                        </div>
-                                                        <a href="testimonial.html" class="btn btn-primary btn-lg">View all Testimonials</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item text-center">
-                                <div class="card-body p-0">
-                                    <div class="row">
-                                        <div class="col-xl-8 col-md-12 d-block mx-auto">
-                                            <div class="">
-                                                <div class="testimonia-img mx-auto mb-3">
-                                                    <img src="{{asset('frontend')}}/assets/images/faces/female/20.jpg" class="img-thumbnail rounded-circle alt=" alt="">
-                                                </div>
-                                                <p><i class="fa fa-quote-left"></i> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum exercitation ullamco laboris nisi.</p>
-                                                <div class="testimonia-data">
-                                                    <h4 class="fs-20 mb-1">Sophie Carr</h4>
-                                                    <div class="rating-stars">
-                                                        <input type="number" readonly="readonly" class="rating-value star" name="rating-stars-value"  value="3">
-                                                        <div class="rating-stars-container mb-2">
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="rating-star sm">
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <a href="testimonial.html" class="btn btn-primary btn-lg">View all Testimonials</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach 
                         </div>
                     </div>
                 </div>
@@ -942,103 +868,42 @@
                 <p>Description goes here...</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-xl-4">
-                    <div class="card mb-lg-0">
-                        <div class="item7-card-img">
-                            <a href="blog-details.html"></a>
-                            <img src="{{asset('frontend')}}/assets/images/products/products/ed1.jpg" alt="img" class="cover-image">
-                            <div class="item7-card-text">
-                                <span class="badge badge-info">News Category 1</span>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="item7-card-desc d-flex mb-2">
-                                <a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>July-03-2019</a>
-                                <div class="ms-auto">
-                                    <a href="javascript:void(0);" class="text-muted"><i class="fa fa-comment-o text-muted me-2"></i>4 Comments</a>
+                @foreach ($all_news as $news)
+                
+                    <div class="col-lg-4 col-md-12 col-xl-4">
+                        <div class="card mb-lg-0">
+                            <div class="item7-card-img">
+                                <a href="blog-details.html"></a>
+                                <img src="{{asset('frontend')}}/assets/images/products/products/ed1.jpg" alt="img" class="cover-image">
+                                <div class="item7-card-text">
+                                    <span class="badge badge-info"> {{ $news->category_name }} </span>
                                 </div>
                             </div>
-                            <a href="blog-details.html" class="text-dark"><h4 class="fs-20">News Heading</h4></a>
-                            <p>Short description about news goes here... </p>
-                            <div class="d-flex align-items-center pt-2 mt-auto">
-                                <img src="{{asset('frontend')}}/assets/images/faces/male/5.jpg" class="avatar brround avatar-md me-3" alt="avatar-img">
-                                <div>
-                                    <a href="userprofile.html" class="text-default">Posted by Admin</a>
-                                    <small class="d-block text-muted">1 day ago</small>
+                            <div class="card-body p-4">
+                                <div class="item7-card-desc d-flex mb-2">
+                                    {{-- July-03-2019 --}}
+                                    <a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>{{ $news->created_at->format('M-d-Y') }}</a>
+                                    <div class="ms-auto">
+                                        <a href="javascript:void(0);" class="text-muted"><i class="fa fa-comment-o text-muted me-2"></i>4 Comments</a>
+                                    </div>
                                 </div>
-                                <div class="ms-auto text-muted">
-                                    <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
-                                    <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-xl-4">
-                    <div class="card mb-lg-0">
-                        <div class="item7-card-img">
-                            <a href="blog-details.html"></a>
-                            <img src="{{asset('frontend')}}/assets/images/products/products/ed1.jpg" alt="img" class="cover-image">
-                            <div class="item7-card-text">
-                                <span class="badge badge-primary">News Category 2</span>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="item7-card-desc d-flex mb-2">
-                                <a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>July-03-2019</a>
-                                <div class="ms-auto">
-                                    <a href="javascript:void(0);" class="text-muted"><i class="fa fa-comment-o text-muted me-2"></i>4 Comments</a>
-                                </div>
-                            </div>
-                            <a href="blog-details.html" class="text-dark"><h4 class="fs-20">News Heading</h4></a>
-                            <p>Short description about news goes here... </p>
-                            <div class="d-flex align-items-center pt-2 mt-auto">
-                                <img src="{{asset('frontend')}}/assets/images/faces/male/5.jpg" class="avatar brround avatar-md me-3" alt="avatar-img">
-                                <div>
-                                    <a href="userprofile.html" class="text-default">Posted by Admin</a>
-                                    <small class="d-block text-muted">1 day ago</small>
-                                </div>
-                                <div class="ms-auto text-muted">
-                                    <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
-                                    <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+                                <a href="blog-details.html" class="text-dark"><h4 class="fs-20">{{ $news->title }}</h4></a>
+                                <p>{{ Str::limit( $news->description, 100, '...') }}</p>
+                                <div class="d-flex align-items-center pt-2 mt-auto">
+                                    <img src="{{asset('frontend')}}/assets/images/faces/male/5.jpg" class="avatar brround avatar-md me-3" alt="avatar-img">
+                                    <div>
+                                        <a href="userprofile.html" class="text-default">Posted by Admin</a>
+                                        <small class="d-block text-muted">1 day ago</small>
+                                    </div>
+                                    <div class="ms-auto text-muted">
+                                        <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+                                        <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-xl-4">
-                    <div class="card mb-lg-0">
-                        <div class="item7-card-img">
-                            <a href="blog-details.html"></a>
-                            <img src="{{asset('frontend')}}/assets/images/products/products/ed1.jpg" alt="img" class="cover-image">
-                            <div class="item7-card-text">
-                                <span class="badge badge-success">News Category 3</span>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="item7-card-desc d-flex mb-2">
-                                <a href="javascript:void(0);" class="text-muted"><i class="fa fa-calendar-o text-muted me-2"></i>July-03-2019</a>
-                                <div class="ms-auto">
-                                    <a href="javascript:void(0);" class="text-muted"><i class="fa fa-comment-o text-muted me-2"></i>4 Comments</a>
-                                </div>
-                            </div>
-                            <a href="blog-details.html" class="text-dark"><h4 class="fs-20">News Heading</h4></a>
-                            <p>Short description about news goes here... </p>
-                            <div class="d-flex align-items-center pt-2 mt-auto">
-                                <img src="{{asset('frontend')}}/assets/images/faces/male/5.jpg" class="avatar brround avatar-md me-3" alt="avatar-img">
-                                <div>
-                                    <a href="userprofile.html" class="text-default">Posted by Admin</a>
-                                    <small class="d-block text-muted">1 day ago</small>
-                                </div>
-                                <div class="ms-auto text-muted">
-                                    <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
-                                    <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
+                    </div> 
+                @endforeach
         </div>
     </section>
     <!--News-->
